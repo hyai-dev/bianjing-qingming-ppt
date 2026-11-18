@@ -7,7 +7,8 @@
 <!-- GZ:FONTS:START · 字体由 guizang-design 字体清单生成；需要把字体内置进 HTML 时用 gz-fonts.mjs embed（卡片 skill 的 render.mjs 会自动内置） -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" data-gz-fonts="playfair-display noto-serif-sc source-serif-4 noto-sans-sc ibm-plex-mono" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+SC:wght@200..900&family=Source+Serif+4:ital,wght@0,200..900;1,200..900&family=Noto+Sans+SC:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" data-gz-fonts="playfair-display noto-serif-sc source-serif-4 noto-sans-sc ibm-plex-mono" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+SC:wght@200..900&family=Source+Serif+4:ital,wght@0,200..900;1,200..900&family=Noto+Sans+SC:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Noto+Serif+SC:wght@200..900&family=Source+Serif+4:ital,wght@0,200..900;1,200..900&family=Noto+Sans+SC:wght@100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
 <!-- GZ:FONTS:END -->
 <style>
   /* GZ:TOKENS:START · guizang-design v0.1.0 生成，不要手改；改设计请改 guizang-design 后运行 scripts/sync-skill.mjs */
@@ -1017,6 +1018,75 @@
     .grid-2-7-5,.grid-2-6-6,.grid-2-8-4{grid-template-columns:1fr}
   }
 </style>
+<style>
+/* 成片定帧页：左文右图，图片保持完整 16:9，不再被裁成窄条 */
+.film-split{display:grid!important;grid-template-columns:30% 1fr;column-gap:3.2vw;align-items:center;padding-top:1.5vh}
+.film-split .film-txt h2{white-space:normal!important}
+.film-split .film-txt .lead{margin-top:2.2vh!important;margin-bottom:0!important}
+.film-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.2vh 1.6vw;align-content:center;width:min(100%,96vh);margin-left:auto;margin-right:auto}
+.film-fig{margin:0;min-width:0}
+.film-fig img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#0c0a08;box-shadow:0 0 0 1px rgba(128,110,80,.35)}
+.film-fig.cap-zh figcaption{font-family:var(--sans-zh);font-size:min(1.2vw,2.15vh);letter-spacing:0;opacity:.9;line-height:1.5}
+.film-fig.cap-zh figcaption b{display:block;font-family:var(--serif-zh);font-size:min(1.5vw,2.7vh);margin-bottom:.2vh}
+.film-fig figcaption{padding:.6vh .2em 0;font-family:var(--mono);font-size:max(min(13px,1.8vh),.72vw);letter-spacing:.12em;opacity:.7;line-height:1.5}
+.vision-s .rowline .v{font-size:min(1.22vw,2.2vh);line-height:1.5}
+.vision-s .rowline .k{font-size:min(1.6vw,2.9vh)}
+.vision-s .img-cap{font-size:max(min(15px,2.1vh),.85vw)}
+/* 统一所有内容页的标题：同一字号、同一行高 */
+.slide:not(.hero) .h-xl{font-size:min(4.6vw,8vh)!important;line-height:1.1!important;white-space:nowrap}
+.slide:not(.hero) .film-txt .h-xl{white-space:normal!important;font-size:min(3.8vw,6.8vh)!important}
+.slide:not(.hero) .kicker{margin-bottom:.6vh!important}
+.kit-wrap{display:flex!important;flex-direction:column;justify-content:flex-start;gap:2vh;padding-top:1vh}
+.kit-two{display:grid;gap:3vw;align-items:start;justify-content:center}
+.kit-fig{margin:0;min-width:0}
+.kit-fig img{display:block;width:100%;object-fit:cover;box-shadow:0 0 0 1px rgba(128,110,80,.35)}
+.kit-fig .kc{padding:1.1vh .2em 0}
+.kit-fig .kc b{display:block;font-family:var(--serif-zh);font-size:min(1.75vw,3.1vh);font-weight:700;margin-bottom:.4vh}
+.kit-fig .kc span{display:block;font-family:var(--sans-zh);font-size:min(1.3vw,2.35vh);line-height:1.6;opacity:.88}
+.kit-sum{display:flex;gap:1.4vw;flex-wrap:wrap}
+.kit-sum div{flex:1 1 0;min-width:0;border-top:2px solid currentColor;padding-top:.9vh;font-family:var(--sans-zh);font-size:min(1.2vw,2.15vh);opacity:.9}
+.kit-sum div b{display:block;font-family:var(--serif-zh);font-size:min(2.1vw,3.8vh);font-weight:700;margin-bottom:.2vh}
+.brg-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4vw}
+.brg-row img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;box-shadow:0 0 0 1px rgba(200,170,120,.25)}
+.brg-row .kc{padding-top:.8vh;font-family:var(--sans-zh);font-size:min(1.4vw,2.5vh);line-height:1.45}
+.brg-row .kc b{display:block;font-family:var(--serif-zh);font-size:min(1.55vw,2.8vh);margin-bottom:.2vh}
+.brg-row .pick b{color:#e8a06a}
+.brg-txt{display:grid;grid-template-columns:1fr 1fr;gap:2.4vw}
+.brg-txt > div{padding:1.4vh 1.5vw}
+.brg-txt h3{font-size:min(1.8vw,3.2vh)!important;line-height:1.25;margin:.4vh 0 .8vh}
+.brg-txt p{font-family:var(--sans-zh);font-size:min(1.32vw,2.4vh);line-height:1.6;opacity:.9;margin:0}
+.qa-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:1vw}
+.qa-step{border:1.5px solid rgba(60,40,20,.55);border-radius:1.2vh;padding:2.2vh 1.5vw;background:rgba(255,250,235,.35)}
+.qa-step .n{font-family:var(--serif-zh);font-weight:700;font-size:min(3.6vw,6.4vh);line-height:1;color:#a4572b}
+.qa-step .n small{font-size:.42em;margin-left:.3em;color:inherit}
+.qa-step b{display:block;font-family:var(--serif-zh);font-size:min(1.7vw,3vh);margin:.6vh 0 .3vh}
+.qa-step span{display:block;font-family:var(--sans-zh);font-size:min(1.2vw,2.15vh);line-height:1.55;opacity:.88}
+.qa-arrow{align-self:center;font-size:min(2.6vw,4.6vh);color:#a4572b}
+.qa-loop{font-family:var(--sans-zh);font-size:min(1.15vw,2.05vh);opacity:.75;text-align:center;margin-top:-.6vh}
+.qa-two{display:grid;grid-template-columns:1.1fr 1fr;gap:2vw}
+.qa-box{border-radius:1.2vh;padding:2vh 1.6vw}
+.qa-box h4{font-family:var(--serif-zh);font-size:min(1.7vw,3vh);margin:0 0 1vh;font-weight:700}
+.qa-box.ok{background:rgba(96,120,70,.14);border:1.5px solid rgba(96,120,70,.55)}
+.qa-box.no{background:rgba(160,90,60,.10);border:1.5px dashed rgba(160,90,60,.6)}
+.qa-chips{display:flex;flex-wrap:wrap;gap:.8vh .7vw}
+.qa-chips i{font-style:normal;font-family:var(--sans-zh);font-size:min(1.4vw,2.5vh);padding:.7vh 1vw;border-radius:99px;background:rgba(255,250,235,.75);border:1px solid rgba(60,40,20,.25)}
+.qa-box.ok i::before{content:"✓ ";color:#5d7a3e;font-weight:700}
+.qa-box.no i::before{content:"○ ";color:#a4572b;font-weight:700}
+.qa-top{display:grid;grid-template-columns:1.35fr 1fr;gap:2vw;align-items:stretch}
+.qa-ba{display:grid;grid-template-columns:1fr 1fr;gap:1.2vw}
+.qa-ba figure{margin:0;min-width:0;position:relative}
+.qa-ba img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:.8vh;box-shadow:0 0 0 1px rgba(60,40,20,.35)}
+.qa-ba .tag{position:absolute;left:.6vw;top:.8vh;font-family:var(--sans-zh);font-size:min(1.15vw,2.05vh);font-weight:700;padding:.3vh .8vw;border-radius:99px;color:#fff;background:#8a4a2c}
+.qa-ba figure.after .tag{background:#4f6e36}
+.qa-ba figcaption{font-family:var(--sans-zh);font-size:min(1.15vw,2.1vh);line-height:1.5;padding-top:.6vh;opacity:.9}
+.qa-steps{display:flex;flex-direction:column;gap:1.4vh;justify-content:center}
+.qa-steps .qa-step{display:grid;grid-template-columns:auto 1fr;column-gap:1vw;align-items:center;padding:1.2vh 1.2vw}
+.qa-steps .qa-step .n{grid-row:1/3;font-size:min(3.2vw,5.6vh);min-width:5.2vw}
+.qa-steps .qa-step b{margin:0}
+.qa-steps .qa-step span{font-size:min(1.1vw,2vh)}
+[data-slide-id="tech-architecture"] .step-desc{font-size:min(1.12vw,2vh)!important;line-height:1.55}
+[data-slide-id="tech-architecture"] .step-title{font-size:min(1.45vw,2.6vh)!important}
+</style>
 </head>
 <body>
 <script>
@@ -1067,22 +1137,23 @@
 <section class="slide hero dark" data-slide-id="cover">
   <div class="chrome">
     <div>Aholo 全球 3D AI 黑客松 · 参赛项目汇报</div>
-    <div>Tag · qingming-final</div>
+    <div>空间设计 · 影视</div>
   </div>
   <div class="frame" style="display:grid; gap:3.4vh; align-content:center; min-height:78vh">
     <div class="kicker" data-anim>应用赛道：空间设计应用奖 · 影视应用奖</div>
     <h1 class="h-hero" style="white-space:nowrap" data-anim>汴京 · 清明</h1>
     <h2 class="h-sub" data-anim>《清明上河图》全 3D 水墨漫游</h2>
     <p class="lead" style="max-width:64vw" data-anim>
-      不是“把画做成动画”，而是把张择端笔下的汴京重建成一个可以走进去的 3D 世界——全部 25 个三维资产由 Aholo Lux3D 文生 3D 生成，同一套代码既可实时预览漫游，也可逐帧确定性渲染 90 秒电影级成片。
+      不是“把画做成动画”，而是把张择端笔下的汴京重建成一个可以走进去的 3D 世界——全部 25 个三维资产由 Aholo Lux3D 文生 3D 生成，同一个场景，既能实时走进去看，也能渲染成 90 秒的电影级成片。
     </p>
     <div class="meta-row" data-anim>
-      <span>Aholo Lux3D G1-Turbo (30,000 面 · PBR)</span><span>·</span><span>Three.js 实例化组景 &amp; 水墨后处理</span><span>·</span><span>1920×1080 · 30fps · 90s</span>
+      <span>Aholo Lux3D G1-Turbo (30,000 面 · PBR)</span><span>·</span><span>网页端 3D 组景 &amp; 水墨风格渲染</span><span>·</span><span>1920×1080 · 30fps · 90s</span>
     </div>
+    <div class="kicker" style="font-size:min(1.5vw,2.7vh);letter-spacing:.3em;opacity:.95;text-transform:none" data-anim>团队成员　胡昊　·　siuser小伟</div>
   </div>
   <div class="foot">
-    <div>定稿成片：out/qingming-v5-3d.mp4（含程序合成音轨）</div>
-    <div>01 / 14</div>
+    <div>Aholo Lux3D 文生 3D · 水墨漫游</div>
+    <div>01 / 15</div>
   </div>
 </section>
 
@@ -1090,47 +1161,47 @@
 <section class="slide light" data-slide-id="creative-vision">
   <div class="chrome">
     <div>01 · 创意与目标</div>
-    <div>Vision · 02 / 14</div>
+    <div>Vision · 02 / 15</div>
   </div>
-  <div class="frame grid-2-7-5" style="padding-top:1.2vh; padding-bottom:1.2vh">
-    <div style="display:flex; flex-direction:column; justify-content:space-between; gap:1.1vh">
+  <div class="frame grid-2-7-5 vision-s" style="padding-top:1.2vh; padding-bottom:1.2vh; grid-template-columns:1.12fr 1fr; align-items:center; column-gap:3vw">
+    <div style="display:flex; flex-direction:column; justify-content:center; gap:1.6vh">
       <div>
         <div class="kicker" style="margin-bottom:1vh" data-anim>北宋 张择端 · 绢本淡设色 · 纵 24.8cm × 横 528.7cm（故宫博物院藏）</div>
         <h2 class="h-xl" style="white-space:nowrap" data-anim>走入整座汴京</h2>
-        <p class="lead" style="margin-top:1vh; font-size:min(1.56vw,2.75vh); line-height:1.48" data-anim>
+        <p class="lead" style="margin-top:1.2vh; font-size:min(1.55vw,2.75vh); line-height:1.5" data-anim>
           《清明上河图》是一幅“看不完”的画：不靠单一主角，而靠一整座城的市井烟火。我们以人眼高度带观众身临其境逛一遍，同时守住三重神韵：
         </p>
-        <div style="margin-top:1.2vh; display:flex; flex-direction:column; gap:.35vh">
-          <div class="rowline" data-anim style="grid-template-columns:.95fr 2.65fr .75fr; padding:.75vh 0">
+        <div style="margin-top:1.4vh; display:flex; flex-direction:column; gap:.4vh">
+          <div class="rowline" data-anim style="grid-template-columns:.8fr 3.4fr .55fr; padding:.8vh 0">
             <div class="k" style="white-space:nowrap">宏大尺度</div>
             <div class="v">开场先以宽银幕展示整条长卷尺度，再连续下沉落到人眼高度；结尾拉高回望整座城。</div>
             <div class="m">SCALE</div>
           </div>
-          <div class="rowline" data-anim style="grid-template-columns:.95fr 2.65fr .75fr; padding:.75vh 0">
+          <div class="rowline" data-anim style="grid-template-columns:.8fr 3.4fr .55fr; padding:.8vh 0">
             <div class="k" style="white-space:nowrap">震撼节奏</div>
             <div class="v">聚焦虹桥“将撞未撞”戏剧一幕（高桅漕船逼近拱桥、桥上呼喊）；循郊野→汴河→虹桥→街市→回望之疏密节奏。</div>
             <div class="m">DRAMA</div>
           </div>
-          <div class="rowline" data-anim style="grid-template-columns:.95fr 2.65fr .75fr; padding:.75vh 0">
+          <div class="rowline" data-anim style="grid-template-columns:.8fr 3.4fr .55fr; padding:.8vh 0">
             <div class="k" style="white-space:nowrap">水墨隐忧</div>
             <div class="v">去饱和绢本暖调、宣纸纤维、墨线与薄雾；竖排楷体字幕点出史实与“盛世隐忧”（只隔一桅、城防松弛、生老病死）。</div>
             <div class="m">SPIRIT</div>
           </div>
         </div>
       </div>
-      <div class="callout" style="padding:1.3vh 1.8vw; font-size:min(1.38vw,2.45vh)" data-anim>
-        “同一套工程代码：<code>pnpm film:dev</code> 支持浏览器实时进入场景环视；<code>pnpm film:render</code> 逐帧确定性合成 1080p 成片。”
+      <div class="callout" style="padding:1.1vh 1.6vw; font-size:min(1.4vw,2.5vh)" data-anim>
+        “同一套场景：既可在浏览器里实时走进去环视，也可逐帧渲染成 1080p 成片。”
         <div class="callout-src" style="margin-top:.55vh">— 实时空间体验与影视成片双态合一</div>
       </div>
     </div>
-    <figure class="frame-img r-16x10" style="margin-top:3.6vh" data-anim>
+    <figure class="frame-img r-16x10" style="margin-top:0" data-anim>
       <img src="images/02-film-30.jpg" alt="成片 30s 汴河漕运咽喉与虹桥全景">
       <figcaption class="img-cap">成片 30s 实机画面 · 汴河漕运咽喉、虹桥与出城驼队</figcaption>
     </figure>
   </div>
   <div class="foot">
     <div>Section 01 · 把画里的汴京重建成可以走进去的 3D 世界</div>
-    <div>02 / 14</div>
+    <div>02 / 15</div>
   </div>
 </section>
 
@@ -1138,7 +1209,7 @@
 <section class="slide dark" data-slide-id="deliverables-kpi">
   <div class="chrome">
     <div>01 · 核心成果概览</div>
-    <div>Metrics · 03 / 14</div>
+    <div>Metrics · 03 / 15</div>
   </div>
   <div class="frame" style="padding-top:2.4vh">
     <div class="kicker" data-anim>100% Lux3D Native · Zero Downloaded Models</div>
@@ -1149,7 +1220,7 @@
       <div class="stat-card" data-anim>
         <div class="stat-label">Lux3D Text-to-3D</div>
         <div class="stat-nb gz-c-accent-display">25 <span class="stat-unit">件</span></div>
-        <div class="stat-note">3 万面 PBR GLB（约 230MB）· 零外部现成模型</div>
+        <div class="stat-note">每件 3 万面、带真实材质贴图，共约 230MB · 没用任何现成模型</div>
       </div>
       <div class="stat-card" data-anim>
         <div class="stat-label">Total API Calls</div>
@@ -1159,17 +1230,17 @@
       <div class="stat-card" data-anim>
         <div class="stat-label">Final Film</div>
         <div class="stat-nb">90 <span class="stat-unit">秒</span></div>
-        <div class="stat-note">1920×1080 · 真 30fps · 2,700 帧确定性渲染无掉帧</div>
+        <div class="stat-note">1920×1080 · 30 帧/秒 · 共 2,700 帧，逐帧渲染无掉帧</div>
       </div>
       <div class="stat-card" data-anim>
         <div class="stat-label">Collision Audit</div>
         <div class="stat-nb gz-c-accent-display">0 <span class="stat-unit">重叠</span></div>
-        <div class="stat-note"><code>qa-collide.mjs</code> 逐帧核验建筑/树干/车船/人畜</div>
+        <div class="stat-note">自动检查建筑、树、车船、人畜之间有无穿插</div>
       </div>
       <div class="stat-card" data-anim>
-        <div class="stat-label">Blind Reviews</div>
+        <div class="stat-label">Review Rounds</div>
         <div class="stat-nb">15 <span class="stat-unit">轮</span></div>
-        <div class="stat-note">由 3.2 分持续打磨至 r15 = 4.00 分过线且无红线</div>
+        <div class="stat-note">AI 评审员反复看片挑问题，我们逐条修复</div>
       </div>
       <div class="stat-card" data-anim>
         <div class="stat-label">Layered Audio</div>
@@ -1180,7 +1251,7 @@
   </div>
   <div class="foot">
     <div>Overview · 全部资产提示词、渲染管线与碰撞审计脚本开源可复核</div>
-    <div>03 / 14</div>
+    <div>03 / 15</div>
   </div>
 </section>
 
@@ -1188,7 +1259,7 @@
 <section class="slide hero light" data-slide-id="act1-walkthrough">
   <div class="chrome">
     <div>第一幕 · 成片视听巡礼</div>
-    <div>Act I · 04 / 14</div>
+    <div>Act I · 04 / 15</div>
   </div>
   <div class="frame" style="display:grid; gap:4.5vh; align-content:center; min-height:78vh">
     <div class="kicker" data-anim>Act I · 90-Second Eye-Level Journey</div>
@@ -1198,8 +1269,8 @@
     </p>
   </div>
   <div class="foot">
-    <div>现场演示切入点 · 可直接播放 out/qingming-v5-3d.mp4</div>
-    <div>04 / 14</div>
+    <div>此处可现场播放成片</div>
+    <div>04 / 15</div>
   </div>
 </section>
 
@@ -1207,35 +1278,24 @@
 <section class="slide dark" data-slide-id="film-part1">
   <div class="chrome">
     <div>第一幕 · 成片定帧（前半卷 00:02 — 00:56）</div>
-    <div>Act I · 05 / 14</div>
+    <div>Act I · 05 / 15</div>
   </div>
-  <div class="frame" style="padding-top:2vh">
-    <div class="kicker" data-anim>Part I · 从宽银幕展卷、郊野柳岸推至全片高潮「虹桥险情」</div>
-    <h2 class="h-xl" style="white-space:nowrap" data-anim>由疏入紧 · 虹桥惊澜</h2>
-    <p class="lead" style="margin-top:.8vh; margin-bottom:1.8vh" data-anim>高桅漕船顺流逼近无柱木拱桥，48 秒鼓点与桥上呼喊齐鸣，点破“太平与险，只隔一桅”。</p>
-
-    <div class="grid-4" style="gap:2vh 2.4vw; padding:0">
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/05-film-02.jpg" alt="成片 2s 宽银幕开篇题名清明上河图">
-        <figcaption class="img-cap">02s · 开卷：宽银幕展现整条长卷尺度与晨雾剪影</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/05-film-12.jpg" alt="成片 12s 郊野汴河边的漕船与行人">
-        <figcaption class="img-cap">12s · 郊野：落至人眼高度，汴河岸边漕船与早行市民</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/05-film-50.jpg" alt="成片 50s 虹桥将撞未撞">
-        <figcaption class="img-cap">50s · 虹桥：船桅逼近木拱肋，“一船将撞未撞，只隔一桅”</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/05-film-56.jpg" alt="成片 56s 驼队与城楼">
-        <figcaption class="img-cap">56s · 驼队与城楼：双峰骆驼负重出城，古道行人络绎</figcaption>
-      </figure>
+  <div class="frame film-split">
+    <div class="film-txt">
+      <div class="kicker" data-anim>Part I · 从宽银幕展卷、郊野柳岸推至全片高潮「虹桥险情」</div>
+      <h2 class="h-xl" data-anim>由疏入紧 ·<br>虹桥惊澜</h2>
+      <p class="lead" data-anim>高桅漕船顺流逼近无柱木拱桥，48 秒鼓点与桥上呼喊齐鸣，点破“太平与险，只隔一桅”。</p>
+    </div>
+    <div class="film-grid">
+        <figure class="film-fig cap-zh" data-anim><img src="images/05-film-02.jpg" alt="成片 2s 宽银幕开篇题名清明上河图"><figcaption><b>02 秒 · 开卷</b>宽银幕展现整条长卷尺度与晨雾剪影</figcaption></figure>
+        <figure class="film-fig cap-zh" data-anim><img src="images/05-film-12.jpg" alt="成片 12s 郊野汴河边的漕船与行人"><figcaption><b>12 秒 · 郊野</b>落至人眼高度，汴河岸边漕船与早行市民</figcaption></figure>
+        <figure class="film-fig cap-zh" data-anim><img src="images/05-film-50.jpg" alt="成片 50s 虹桥将撞未撞"><figcaption><b>50 秒 · 虹桥</b>船桅逼近木拱肋，“一船将撞未撞，只隔一桅”</figcaption></figure>
+        <figure class="film-fig cap-zh" data-anim><img src="images/05-film-56.jpg" alt="成片 56s 驼队与城楼"><figcaption><b>56 秒 · 驼队与城楼</b>双峰骆驼负重出城，古道行人络绎</figcaption></figure>
     </div>
   </div>
   <div class="foot">
-    <div>Frames · docs/report/img/film_2 · film_12 · film_50 · film_56</div>
-    <div>05 / 14</div>
+    <div>成片定帧 · 02s / 12s / 50s / 56s</div>
+    <div>05 / 15</div>
   </div>
 </section>
 
@@ -1243,35 +1303,24 @@
 <section class="slide light" data-slide-id="film-part2">
   <div class="chrome">
     <div>第一幕 · 成片定帧（后半卷 01:02 — 01:27）</div>
-    <div>Act I · 06 / 14</div>
+    <div>Act I · 06 / 15</div>
   </div>
-  <div class="frame" style="padding-top:2vh">
-    <div class="kicker" data-anim>Part II · 从半空俯瞰入城，历围圈说书、正店医铺，终隐入宣纸浓雾</div>
-    <h2 class="h-xl" style="white-space:nowrap" data-anim>市井烟火 · 拉高回望</h2>
-    <p class="lead" style="margin-top:.8vh; margin-bottom:1.8vh" data-anim>高潮过后进入稠密街市百态，片尾重新合拢宽银幕遮幅，留白回落并盖下「汴京 · 清明」朱砂印。</p>
-
-    <div class="grid-4" style="gap:2vh 2.4vw; padding:0">
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/06-film-62.jpg" alt="成片 62s 拉高俯瞰汴河与城楼">
-        <figcaption class="img-cap">62s · 拉高俯瞰：城楼、夯土城墙、虹桥与汴河全貌</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/06-film-75.jpg" alt="成片 75s 河岸说书围成一圈的听众">
-        <figcaption class="img-cap">75s · 说书：高处侧拍，十一位朝向台上的围观听众</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/06-film-80.jpg" alt="成片 80s 孙羊正店与赵太丞家医铺">
-        <figcaption class="img-cap">80s · 街市与医铺：「孙羊正店」招幌、「赵太丞家」与棚车挑夫</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/06-film-87.jpg" alt="成片 87s 收尾回望与朱印汴京清明">
-        <figcaption class="img-cap">87s · 收尾回望：雾隐全城，落下朱印「汴京 · 清明」</figcaption>
-      </figure>
+  <div class="frame film-split">
+    <div class="film-txt">
+      <div class="kicker" data-anim>Part II · 从半空俯瞰入城，历围圈说书、正店医铺，终隐入宣纸浓雾</div>
+      <h2 class="h-xl" data-anim>市井烟火 ·<br>拉高回望</h2>
+      <p class="lead" data-anim>高潮过后进入稠密街市百态，片尾重新合拢宽银幕遮幅，留白回落并盖下「汴京 · 清明」朱砂印。</p>
+    </div>
+    <div class="film-grid">
+        <figure class="film-fig cap-zh" data-anim><img src="images/06-film-62.jpg" alt="成片 62s 拉高俯瞰汴河与城楼"><figcaption><b>62 秒 · 拉高俯瞰</b>城楼、夯土城墙、虹桥与汴河全貌</figcaption></figure>
+        <figure class="film-fig cap-zh" data-anim><img src="images/06-film-75.jpg" alt="成片 75s 河岸说书围成一圈的听众"><figcaption><b>75 秒 · 说书</b>高处侧拍，十一位朝向台上的围观听众</figcaption></figure>
+        <figure class="film-fig cap-zh" data-anim><img src="images/06-film-80.jpg" alt="成片 80s 孙羊正店与赵太丞家医铺"><figcaption><b>80 秒 · 街市与医铺</b>「孙羊正店」招幌、「赵太丞家」与棚车挑夫</figcaption></figure>
+        <figure class="film-fig cap-zh" data-anim><img src="images/06-film-87.jpg" alt="成片 87s 收尾回望与朱印汴京清明"><figcaption><b>87 秒 · 收尾回望</b>雾隐全城，落下朱印「汴京 · 清明」</figcaption></figure>
     </div>
   </div>
   <div class="foot">
-    <div>Frames · docs/report/img/film_62 · film_75 · film_80 · film_87</div>
-    <div>06 / 14</div>
+    <div>成片定帧 · 62s / 75s / 80s / 87s</div>
+    <div>06 / 15</div>
   </div>
 </section>
 
@@ -1279,115 +1328,113 @@
 <section class="slide hero dark" data-slide-id="act2-lux3d">
   <div class="chrome">
     <div>02 · Lux3D 在项目中的作用</div>
-    <div>Act II · 07 / 14</div>
+    <div>Act II · 07 / 15</div>
   </div>
   <div class="frame" style="display:grid; gap:4.5vh; align-content:center; min-height:78vh">
-    <div class="kicker" data-anim>Act II · Core 3D AI Technology Stack</div>
-    <h1 class="h-hero" style="font-size:min(8vw,14.2vh); line-height:1.06" data-anim>万物皆由生成</h1>
+    <div class="kicker" data-anim>Act II · Aholo Lux3D · Text-to-3D</div>
+    <h1 class="h-hero" style="font-size:min(7.4vw,13vh); line-height:1.08" data-anim>写一句话，<br>生成一件宋代资产</h1>
     <p class="lead" style="max-width:60vw" data-anim>
-      场景里每一个可见的 3D 物件都由群核 Aholo Lux3D 生成（<code>G1-Turbo</code> · 30,000 面 · PBR GLB），单资产约 70–150 秒、1 积分；通过 5 路并发、断点续跑脚本构建起整座宋代资产库。
+      桥、船、楼、人、牲畜、树，共 25 件三维物体，全部是我们写一段文字描述，交给群核 Aholo Lux3D 的文生 3D 生成的（3 万面 · PBR 材质），每件约 70–150 秒、1 积分。地面、水面、天空和水墨效果由程序生成。
     </p>
   </div>
   <div class="foot">
-    <div>server/aholo.ts → createTextTo3d · scripts/txt3d-kit.ts（即时下载防 2h 链接失效）</div>
-    <div>07 / 14</div>
+    <div>Aholo Lux3D 文生 3D · 批量生成脚本</div>
+    <div>07 / 15</div>
   </div>
 </section>
 
-<!-- 08 · §2.1 & §2.2 廿五件文生宋代资产全景 (light) -->
+<!-- 08 · 25 件资产库（一）：建筑舟船 + 牲畜器物植物 -->
 <section class="slide light" data-slide-id="lux3d-kit-matrix">
   <div class="chrome">
-    <div>02.2 · Lux3D 文生 3D 资产清单</div>
-    <div>Act II · 08 / 14</div>
+    <div>02.2 · Lux3D 文生 3D 资产清单（一）</div>
+    <div>Act II · 08 / 15</div>
   </div>
-  <div class="frame" style="padding-top:1.4vh; padding-bottom:1.8vh; display:flex; flex-direction:column; justify-content:space-between">
-    <div>
-      <div class="kicker" style="margin-bottom:.8vh" data-anim>25 Assets (~230MB GLB, 8–12MB Each) · All Prompts in scripts/txt3d-kit.ts</div>
-      <h2 class="h-xl" style="white-space:nowrap" data-anim>廿五件宋代资产库</h2>
+  <div class="frame kit-wrap">
+    <div class="kit-head">
+      <div class="kicker" style="margin-bottom:.4vh" data-anim>25 Assets · Text-to-3D · Part 1 of 2</div>
+      <h2 class="h-xl" data-anim>25 件宋代资产库（一）</h2>
     </div>
-
-    <div class="grid-2-6-6" style="gap:2.4vw; margin-top:1.2vh">
-      <figure class="frame-img fit-contain" style="height:27.6vh" data-anim>
-        <img src="images/08-kit-arch.jpg" style="background:#3b3228" alt="Lux3D 生成的宋代建筑与漕船">
-        <figcaption class="img-cap">建筑与舟船 · 城楼 / 彩楼欢门 / 酒楼 / 店铺 / 民居 / 亭 / 城墙 / 漕船</figcaption>
+    <div class="kit-two" style="grid-template-columns:min(88vh,50vw) min(66vh,37vw)">
+      <figure class="kit-fig" data-anim>
+        <img src="images/08-kit-arch.jpg" style="aspect-ratio:2/1" alt="Lux3D 生成的宋代建筑与漕船">
+        <div class="kc"><b>建筑与舟船 · 8 件</b><span>上排：城楼 · 彩楼欢门 · 酒楼 · 店铺<br>下排：民居 · 亭 · 夯土城墙 · 漕船</span></div>
       </figure>
-      <figure class="frame-img fit-contain" style="height:27.6vh" data-anim>
-        <img src="images/08-kit-people.jpg" style="background:#3b3228" alt="Lux3D 生成的 8 种宋代人物">
-        <figcaption class="img-cap">8 种宋代人物 · 右下僧人自带方形底座，在场景内自动埋入地下</figcaption>
+      <figure class="kit-fig" data-anim>
+        <img src="images/08-kit-misc.jpg" style="aspect-ratio:3/2" alt="Lux3D 生成的骆驼、驴、太平车、垂柳与苍松">
+        <div class="kc"><b>牲畜、器物与植物 · 5 件</b><span>骆驼 · 驴 · 太平车 · 垂柳<br>下排：苍松</span></div>
       </figure>
-    </div>
-
-    <div class="pipeline" data-cols="5" style="margin-top:1.4vh; gap:1.4vw">
-      <div class="step" data-anim>
-        <div class="step-nb">01 · 5 件</div>
-        <div class="step-title">桥与水</div>
-        <div class="step-desc"><code>bridge / B / C / D</code> 虹桥四版 + <code>boat</code> 漕船排队过拱</div>
-      </div>
-      <div class="step" data-anim>
-        <div class="step-nb">02 · 7 件</div>
-        <div class="step-title">宋构建筑</div>
-        <div class="step-desc">城楼、彩楼欢门、酒楼、店铺、民居、亭、夯土城墙</div>
-      </div>
-      <div class="step" data-anim>
-        <div class="step-nb">03 · 8 件</div>
-        <div class="step-title">市井人物</div>
-        <div class="step-desc">挑夫、书生、老者、妇人、孩童、兵士、商人、僧人</div>
-      </div>
-      <div class="step" data-anim>
-        <div class="step-nb">04 · 3 件</div>
-        <div class="step-title">牲畜与器物</div>
-        <div class="step-desc"><code>camel</code> 出城驼队、<code>donkey</code> 驴队、<code>cart</code> 门前太平车</div>
-      </div>
-      <div class="step" data-anim>
-        <div class="step-nb">05 · 2 件</div>
-        <div class="step-title">植物组景</div>
-        <div class="step-desc"><code>willow</code> 早春垂柳、<code>pine</code> 苍松点缀两岸与远景</div>
-      </div>
     </div>
   </div>
   <div class="foot">
-    <div>Section 02.2 · 五大类 25 件资产完整覆盖《清明上河图》核心风物</div>
-    <div>08 / 14</div>
+    <div>Section 02.2 · 建筑、舟船、牲畜、器物与植物共 13 件，人物与虹桥见下两页</div>
+    <div>08 / 15</div>
   </div>
 </section>
 
-<!-- 09 · §2.3 虹桥四个版本对比 + 图生 vs 文生实测结论 (dark) -->
+<!-- 09 · 25 件资产库（二）：市井人物 -->
+<section class="slide light" data-slide-id="lux3d-kit-people">
+  <div class="chrome">
+    <div>02.2 · Lux3D 文生 3D 资产清单（二）</div>
+    <div>Act II · 09 / 15</div>
+  </div>
+  <div class="frame kit-wrap">
+    <div class="kit-head">
+      <div class="kicker" style="margin-bottom:.4vh" data-anim>25 Assets · Text-to-3D · Part 2 of 2</div>
+      <h2 class="h-xl" data-anim>25 件宋代资产库（二）</h2>
+    </div>
+    <div class="kit-two" style="grid-template-columns:68vh minmax(0,1fr); align-items:center; justify-content:stretch">
+      <figure class="kit-fig" data-anim>
+        <img src="images/08-kit-people.jpg" style="aspect-ratio:2/1" alt="Lux3D 生成的 8 种宋代人物">
+        <div class="kc"><b>市井人物 · 8 件</b><span>上排：挑夫 · 书生 · 老者 · 妇人<br>下排：孩童 · 兵士 · 商人 · 僧人</span></div>
+      </figure>
+      <div data-anim style="font-family:var(--sans-zh);font-size:min(1.5vw,2.7vh);line-height:1.7">
+        <p style="margin:0 0 1.4vh">八种身份，覆盖河岸码头到街市说书场的各色人群。场景里每种人物复制出几十个实例，每个人的步频与起步时间各不相同。</p>
+        <p style="margin:0;opacity:.8">僧人模型生成时自带方形底座，进入场景时我们让它自动埋入地面。</p>
+      </div>
+    </div>
+    <div class="kit-sum" data-anim>
+      <div><b>4</b>虹桥（见下页）</div><div><b>1</b>漕船</div><div><b>7</b>宋构建筑</div><div><b>8</b>市井人物</div><div><b>3</b>牲畜与器物</div><div><b>2</b>垂柳与苍松</div><div><b>= 25</b>全部文生 3D</div>
+    </div>
+  </div>
+  <div class="foot">
+    <div>Section 02.2 · 五大类共 25 件，累计约 230MB</div>
+    <div>09 / 15</div>
+  </div>
+</section>
+
+<!-- 10 · §2.3 虹桥四个版本对比 + 图生 vs 文生实测结论 (dark) -->
 <section class="slide dark" data-slide-id="lux3d-bridges-and-test">
   <div class="chrome">
     <div>02.3 · 关键资产迭代与路线实测</div>
-    <div>Act II · 09 / 14</div>
+    <div>Act II · 10 / 15</div>
   </div>
-  <div class="frame" style="padding-top:1.4vh; padding-bottom:1.8vh; display:flex; flex-direction:column; justify-content:space-between">
-    <div>
-      <div class="kicker" style="margin-bottom:.8vh" data-anim>Rainbow Bridge 4 Generations &amp; Image-to-3D vs Text-to-3D Empirical Findings</div>
-      <h2 class="h-xl" style="white-space:nowrap" data-anim>虹桥迭代与路线实测</h2>
+  <div class="frame kit-wrap" style="gap:1.8vh">
+    <div class="kit-head">
+      <div class="kicker" style="margin-bottom:.4vh" data-anim>Rainbow Bridge · 4 Generations</div>
+      <h2 class="h-xl" data-anim>虹桥迭代与路线实测</h2>
     </div>
-
-    <figure class="frame-img fit-contain" style="height:22.8vh; margin-top:1vh; background:#3a3127" data-anim>
-      <img src="images/09-kit-bridges-wide.jpg" alt="虹桥四个版本演进对比 bridge 到 bridgeD">
-    </figure>
-
-    <div class="grid-2-6-6" style="gap:3.6vw; margin-top:1.4vh">
-      <div style="padding:1.8vh 1.8vw; border-left:3px solid var(--accent-ink)" data-anim>
-        <div class="kicker gz-c-accent" style="opacity:1; margin-bottom:.8vh">关键迭代 · 为什么连生四版虹桥？</div>
-        <h3 class="h-md">从“走不上去的石墩桥”到物理自洽的 bridgeC</h3>
-        <p style="margin-top:1vh; font-family:var(--sans-zh); font-size:max(15px,1.06vw); line-height:1.62; opacity:.86">
-          第一版虹桥（左一）拱形漂亮，但两端带陡峭石墩，<strong>人物根本走不上桥</strong>。我们据此改写提示词（强调<em>“两端缓坡、宽台阶、与街面齐平、可步行”</em>），连续生成 B、C、D 三版，最终选定 <code>bridgeC</code>：缓坡台阶 + 细木拱肋，使桥上人流与桥下船只同时实现物理自洽。
-        </p>
+    <div class="brg-row" data-anim>
+      <div><img src="images/09-bridge-1.jpg" alt="虹桥第一版"><div class="kc"><b>第一版</b>带陡峭石墩，人走不上去</div></div>
+      <div><img src="images/09-bridge-2.jpg" alt="虹桥第二版"><div class="kc"><b>第二版</b>改为缓坡，但拱跨偏低</div></div>
+      <div class="pick"><img src="images/09-bridge-3.jpg" alt="虹桥第三版（选用）"><div class="kc"><b>第三版 · 选用</b>缓坡台阶 + 细木拱肋</div></div>
+      <div><img src="images/09-bridge-4.jpg" alt="虹桥第四版"><div class="kc"><b>第四版</b>路面偏宽，拱形不明显</div></div>
+    </div>
+    <div class="brg-txt">
+      <div style="border-left:3px solid var(--accent-ink)" data-anim>
+        <div class="kicker gz-c-accent" style="opacity:1">关键迭代 · 为什么连生四版虹桥？</div>
+        <h3 class="h-md">从“走不上去的石墩桥”，到人能走、船能过的第三版</h3>
+        <p>第一版拱形漂亮，但两端带陡峭石墩，<strong>人物根本走不上桥</strong>。我们改写提示词，强调“两端缓坡、宽台阶、与街面齐平、可步行”，连续生成后三版，最终选定第三版，让桥上人流和桥下船只都能顺利通过。</p>
       </div>
-
-      <div style="padding:1.8vh 1.8vw; border-left:3px solid currentColor; background:rgba(var(--paper-rgb),.05)" data-anim>
-        <div class="kicker" style="opacity:.85; margin-bottom:.8vh">实测结论 · 图生 3D（10 次）vs 文生 3D（25 件）</div>
-        <h3 class="h-md">文生宋代构件库 + 程序化组景最稳</h3>
-        <p style="margin-top:1vh; font-family:var(--sans-zh); font-size:max(15px,1.06vw); line-height:1.62; opacity:.86">
-          早期用原画裁切测试 10 次图生 3D：仅<strong>单体建筑（城楼）干净可用</strong>；人群、船、桥整体、驼队、<strong>医铺（得到木块）、彩楼（得到镂空平板）均失败</strong>。改用文生 3D 后，宋代建筑的飞檐、斗拱、布幔、船篷、桅索质量明显更稳，由此锁定最终技术路线。
-        </p>
+      <div style="border-left:3px solid currentColor; background:rgba(var(--paper-rgb),.05)" data-anim>
+        <div class="kicker" style="opacity:.85">实测结论 · 图生 3D（10 次）vs 文生 3D（25 件）</div>
+        <h3 class="h-md">文字生成构件，再由程序组景，最稳</h3>
+        <p>早期用原画裁切做 10 次图生 3D：只有<strong>单体建筑（城楼）干净可用</strong>；人群、船、桥整体、驼队、<strong>医铺（得到一块木头）、彩楼（得到镂空平板）都失败</strong>。改用文生 3D 后，飞檐、斗拱、布幔、船篷、桅索的质量明显更稳，据此锁定了最终路线。</p>
       </div>
     </div>
   </div>
   <div class="foot">
     <div>Section 02.3 · 累计调用 Lux3D 至少 35 次的一手验证结论</div>
-    <div>09 / 14</div>
+    <div>10 / 15</div>
   </div>
 </section>
 
@@ -1395,35 +1442,24 @@
 <section class="slide light" data-slide-id="four-iterations">
   <div class="chrome">
     <div>04 · 迭代过程（关键里程碑）</div>
-    <div>Milestones · 10 / 14</div>
+    <div>Milestones · 11 / 15</div>
   </div>
-  <div class="frame" style="padding-top:2vh">
-    <div class="kicker" data-anim>Driven by Direct Observation of Rendered Footage</div>
-    <h2 class="h-xl" style="white-space:nowrap" data-anim>三次转向与四代演进</h2>
-    <p class="lead" style="margin-top:.8vh; margin-bottom:1.8vh" data-anim>项目路线是被“看起来对不对”反复推着走的，三次大转向均来自对成片的直接审视：</p>
-
-    <div class="grid-4" style="gap:2vh 2.4vw; padding:0">
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/10-v3-44.jpg" alt="v3 画中行原画深度视差 44s">
-        <figcaption class="img-cap">v3 画中行（44s）· 原画 38414×1800 切 12 块位移视差 → “没有体现 3D”，放弃</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/10-hybrid-28.jpg" alt="hybrid 原画叠贴 Lux3D 28s">
-        <figcaption class="img-cap">hybrid（28s）· 原画背景叠贴 Lux3D 物件 → “太抽象（城楼漂在画上）”，放弃</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/10-v4-44.jpg" alt="v4 汴京三维首个全3D版 44s">
-        <figcaption class="img-cap">v4 汴京三维（44s）· 首个全 3D 重建（Lux3D + Three.js），人物静态、物理问题多</figcaption>
-      </figure>
-      <figure class="frame-img" style="height:22.8vh" data-anim>
-        <img src="images/10-v5-44.jpg" alt="v5 定稿全3D水墨漫游 44s">
-        <figcaption class="img-cap">v5 定稿（44s）· 水墨后处理、步态、分道绕行、说书与牌匾，根治陷地与穿插</figcaption>
-      </figure>
+  <div class="frame film-split">
+    <div class="film-txt">
+      <div class="kicker" data-anim>Driven by What We Saw on Screen</div>
+      <h2 class="h-xl" data-anim>三次转向，<br>四代演进</h2>
+      <p class="lead" data-anim>路线是被“看起来对不对”反复推着走的。三次大转向，都来自我们对成片的直接审视。</p>
+    </div>
+    <div class="film-grid">
+      <figure class="film-fig cap-zh" data-anim><img src="images/10-v3-44.jpg" alt="v3 画中行"><figcaption><b>第一代 · 画中行</b>长卷切块做视差，没有 3D 感，放弃</figcaption></figure>
+      <figure class="film-fig cap-zh" data-anim><img src="images/10-hybrid-28.jpg" alt="hybrid 原画叠贴"><figcaption><b>第二代 · 原画叠 3D</b>原画上叠 3D 城楼，城楼漂在画上，放弃</figcaption></figure>
+      <figure class="film-fig cap-zh" data-anim><img src="images/10-v4-44.jpg" alt="v4 汴京三维"><figcaption><b>第三代 · 首个全 3D</b>整座城重建成 3D，但人物静止、物理问题多</figcaption></figure>
+      <figure class="film-fig cap-zh" data-anim><img src="images/10-v5-44.jpg" alt="v5 定稿"><figcaption><b>第四代 · 定稿</b>水墨渲染、人物行走、人流分道，修掉陷地</figcaption></figure>
     </div>
   </div>
   <div class="foot">
-    <div>Section 04 · v3 → hybrid → v4 → v5（定稿）完整视觉对比</div>
-    <div>10 / 14</div>
+    <div>Section 04 · 四代版本的同一时刻对比</div>
+    <div>11 / 15</div>
   </div>
 </section>
 
@@ -1431,29 +1467,29 @@
 <section class="slide hero light" data-slide-id="act3-tech">
   <div class="chrome">
     <div>03 · 技术实现</div>
-    <div>Act III · 11 / 14</div>
+    <div>Act III · 12 / 15</div>
   </div>
   <div class="frame" style="display:grid; gap:4.5vh; align-content:center; min-height:78vh">
-    <div class="kicker" data-anim>Act III · Nine-Layer Engineering Stack</div>
+    <div class="kicker" data-anim>Act III · How It Is Built</div>
     <h1 class="h-hero" style="font-size:min(8.2vw,14.6vh); line-height:1.06" data-anim>笔墨与物理自洽</h1>
     <p class="lead" style="max-width:60vw" data-anim>
-      从按 X 轴分块的 InstancedMesh、Sobel 断笔水墨后处理，到射线实测表面高度表、<code>qa-collide.mjs</code> 零重叠审计、<code>window.__step(t)</code> 确定性逐帧合成与 90 秒程序声场。
+      从大批量实例化渲染、手绘断笔的水墨效果，到实测地面高度、零穿插自动检查、逐帧精确合成，以及 90 秒程序合成声场。
     </p>
   </div>
   <div class="foot">
-    <div>demos/bianjing3d/main.js · tools/qa-collide.mjs · tools/make_soundtrack.py</div>
-    <div>11 / 14</div>
+    <div>水墨渲染 · 物理自洽 · 程序合成声场</div>
+    <div>12 / 15</div>
   </div>
 </section>
 
 <!-- 12 · §3 技术实现完整九层拆解 (dark · Layout 6 Pipeline) -->
 <section class="slide dark" data-slide-id="tech-architecture" data-animate="pipeline">
   <div class="chrome">
-    <div>03 · 技术实现九层架构</div>
-    <div>Act III · 12 / 14</div>
+    <div>03 · 技术实现</div>
+    <div>Act III · 13 / 15</div>
   </div>
   <div class="frame" style="padding-top:1.8vh">
-    <div class="kicker">Press → or Space to Step Through · 完整对齐项目报告书第 3 节</div>
+    <div class="kicker">Look · Motion · Physics · Sound</div>
     <h2 class="h-xl" style="white-space:nowrap">视觉渲染与空间秩序管线</h2>
 
     <div class="pipeline-section" style="margin-top:2.4vh">
@@ -1462,22 +1498,22 @@
         <div class="step" data-anim="step">
           <div class="step-nb">01 · 场景组织</div>
           <div class="step-title">分块实例化与丝绢补丁</div>
-          <div class="step-desc">部件级 InstancedMesh，静态物按 X 分块视锥裁剪；材质统一注入去饱和暖调“丝绢补丁”。</div>
+          <div class="step-desc">同类部件批量实例化渲染，静态物按区域分块、只画镜头看得到的部分；材质统一注入去饱和暖调“丝绢补丁”。</div>
         </div>
         <div class="step" data-anim="step">
           <div class="step-nb">02 · 地形与水</div>
           <div class="step-title">河岸着色与晨昏天光</div>
-          <div class="step-desc">程序地形 <code>hAt(x,z)</code> 配流光波纹河面着色器；随相机移动穹顶与指数雾由冷晨渐变为暖金。</div>
+          <div class="step-desc">程序生成地形，配流动波纹的河面；随相机移动穹顶与指数雾由冷晨渐变为暖金。</div>
         </div>
         <div class="step" data-anim="step">
           <div class="step-nb">03 · 水墨后处理</div>
-          <div class="step-title">Sobel 断笔与宣纸纤维</div>
-          <div class="step-desc">深度+亮度 Sobel 抖动断笔描边、近实远柔淡彩、宣纸纤维笔触噪声、抬黑、雾融纸色与暗角。</div>
+          <div class="step-title">手绘断笔与宣纸纤维</div>
+          <div class="step-desc">按深度与明暗提取轮廓，带手绘抖动与断笔；近实远柔淡彩、宣纸纤维笔触噪声、抬黑、雾融纸色与暗角。</div>
         </div>
         <div class="step" data-anim="step">
           <div class="step-nb">04 · 人物动画</div>
           <div class="step-title">顶点摆腿与围圈说书</div>
-          <div class="step-desc">顶点着色器按实例独立相位、步频与幅度左右摆腿（无骨骼防克隆）；说书场 11 人围圈面朝台上。</div>
+          <div class="step-desc">每个人的步频、幅度和起步时间各不相同，摆腿走路（避免千人一面）；说书场 11 人围圈面朝台上。</div>
         </div>
       </div>
     </div>
@@ -1492,25 +1528,25 @@
         </div>
         <div class="step" data-anim="step">
           <div class="step-nb">06 · 物理自洽</div>
-          <div class="step-title">射线高度表与 0 重叠审计</div>
-          <div class="step-desc">地面、桥面、船底全部射线实测采样；<code>qa-collide.mjs</code> 逐帧扫描建筑/树/船/人畜强制 0 重叠。</div>
+          <div class="step-title">实测高度与 0 重叠审计</div>
+          <div class="step-desc">地面、桥面、船底全部实测高度；自动逐帧扫描建筑、树、船、人畜，要求全片 0 重叠。</div>
         </div>
         <div class="step" data-anim="step">
           <div class="step-nb">07 · 镜头与牌匾</div>
-          <div class="step-title">Hermite 路径与动态题匾</div>
-          <div class="step-desc">带最低机位防穿地检查的连续曲线运镜、宽银幕遮幅；Canvas 生成「孙羊正店」「赵太丞家」「说书」。</div>
+          <div class="step-title">平滑运镜与动态题匾</div>
+          <div class="step-desc">镜头沿平滑曲线移动并自动防止穿地，宽银幕遮幅；程序生成「孙羊正店」「赵太丞家」「说书」。</div>
         </div>
         <div class="step" data-anim="step">
           <div class="step-nb">08 · 成片与声音</div>
           <div class="step-title">确定性 2700 帧与合成声轨</div>
-          <div class="step-desc"><code>?det=1</code> + <code>__step(t)</code> 逐帧合成真 30fps；Python 合成风水/五声/驼铃/叫卖/杯盏/48s高潮鼓点呼喊。</div>
+          <div class="step-desc">逐帧精确渲染，真 30fps；程序合成风水、古乐、驼铃、叫卖、杯盏声与 48 秒高潮的鼓点呼喊。</div>
         </div>
       </div>
     </div>
   </div>
   <div class="foot">
-    <div>Section 03 · 九层工程细节完整闭环，无黑盒依赖</div>
-    <div>12 / 14</div>
+    <div>Section 03 · 八个环节全部用代码实现，每一步都可复核</div>
+    <div>13 / 15</div>
   </div>
 </section>
 
@@ -1518,41 +1554,38 @@
 <section class="slide light" data-slide-id="quality-and-limits">
   <div class="chrome">
     <div>05 &amp; 06 · 质量验收与已知不足</div>
-    <div>Verification · 13 / 14</div>
+    <div>Verification · 14 / 15</div>
   </div>
-  <div class="frame grid-2-7-5" style="padding-top:2vh">
-    <div style="display:flex; flex-direction:column; justify-content:space-between; gap:1.5vh">
-      <div>
-        <div class="kicker" style="margin-bottom:1.1vh" data-anim>docs/31 Acceptance Criteria (A–G + 10 Red Lines) · Three-Gate QA</div>
-        <h2 class="h-xl" style="white-space:nowrap" data-anim>三重把关与坦诚边界</h2>
-        <div style="margin-top:1.4vh; display:flex; flex-direction:column; gap:.45vh">
-          <div class="rowline" data-anim style="grid-template-columns:1.18fr 2.62fr; padding:.88vh 0">
-            <div class="k" style="white-space:nowrap">独立盲审 15 轮</div>
-            <div class="v">按 A–G 七类标准与 10 条红线独立打分（<code>docs/59–73</code>），由 3.2 → 3.77 → 3.90 → 3.96 升至 <strong>r15 = 4.00 达标</strong>。</div>
-          </div>
-          <div class="rowline" data-anim style="grid-template-columns:1.18fr 2.62fr; padding:.88vh 0">
-            <div class="k" style="white-space:nowrap">跨模型看片复核</div>
-            <div class="v">引入 Gemini 4 Carbon 实看视频与音轨（打 2.63 分，<code>docs/74</code>），核对后修复了 70s 章名漏字并重调叫卖与冲击声对位。</div>
-          </div>
-          <div class="rowline" data-anim style="grid-template-columns:1.18fr 2.62fr; padding:.88vh 0">
-            <div class="k" style="white-space:nowrap">作者人工实测</div>
-            <div class="v">亲自看片抓出开场发黑、人陷地、桥上人漂浮、船穿桥、倒着走、桥脚穿桥、人脸模糊等缺陷，逐条用测量验证修复。</div>
-          </div>
-        </div>
+  <div class="frame kit-wrap" style="gap:2.6vh">
+    <div class="kit-head">
+      <div class="kicker" style="margin-bottom:.4vh" data-anim>Review · Fix · Known Limits</div>
+      <h2 class="h-xl" data-anim>反复看片、逐条修复，与坦诚的不足</h2>
+    </div>
+    <div class="qa-top" data-anim>
+      <div class="qa-ba">
+        <figure class="before"><img src="images/10-v4-44.jpg" alt="修复前 v4 第 44 秒"><span class="tag">修复前</span><figcaption>v4 · 第 44 秒：人物静止、脚陷地面、桥上有人漂浮</figcaption></figure>
+        <figure class="after"><img src="images/10-v5-44.jpg" alt="修复后 v5 第 44 秒"><span class="tag">修复后</span><figcaption>定稿 v5 · 同一时刻：这些问题已逐项修复</figcaption></figure>
       </div>
-      <div class="callout" style="padding:1.6vh 1.8vw" data-anim>
-        <strong>已知不足与后续计划（§6）：</strong>① 城门洞为实心未镂空、水面偏平、8 类人物近景仍有一定重复感；② 建筑与桥水墨描边弱于人物树木；③ 叫卖为系统 TTS 未专业混音；④ 230MB GLB 上线需做 <code>meshopt / WebP</code> 压缩。
-        <div class="callout-src" style="margin-top:.7vh">— 诚实区分已达成指标与下一步工程演进</div>
+      <div class="qa-steps">
+        <div class="qa-step"><div class="n">15<small>轮</small></div><b>AI 评审员看片</b><span>挑问题，我们修复后再审</span></div>
+        <div class="qa-step"><div class="n">+1<small>个模型</small></div><b>换 Gemini 再看</b><span>更挑剔，指出章名漏字等</span></div>
+        <div class="qa-step"><div class="n">2<small>人</small></div><b>我们两人亲自看片</b><span>逐帧测量，验证修复</span></div>
       </div>
     </div>
-    <figure class="frame-img r-16x10 fit-contain" style="margin-top:4.2vh" data-anim>
-      <img src="images/13-review-curve.jpg" alt="v5 十五轮独立盲审爬坡曲线与 r15 七维得分">
-      <figcaption class="img-cap">r15 终审：A 4.0 / B 4.1 / C 3.9 / D 4.0 / E 3.8 / F 3.8 / G 4.4（零红线）</figcaption>
-    </figure>
+    <div class="qa-two" data-anim>
+      <div class="qa-box ok">
+        <h4>已经修复的问题</h4>
+        <div class="qa-chips"><i>开场发黑</i><i>人陷进地里</i><i>桥上的人漂在半空</i><i>船穿过桥</i><i>人倒着走</i><i>人脸模糊</i><i>章名漏字</i><i>叫卖声没对上</i></div>
+      </div>
+      <div class="qa-box no">
+        <h4>仍然存在的不足</h4>
+        <div class="qa-chips"><i>城门洞是实心的</i><i>水面偏平</i><i>近景人物有重复感</i><i>建筑水墨感偏弱</i><i>叫卖是合成语音</i><i>模型包 230MB 需压缩</i></div>
+      </div>
+    </div>
   </div>
   <div class="foot">
-    <div>Section 05 &amp; 06 · 独立评审 + 异构模型挑刺 + 作者把关</div>
-    <div>13 / 14</div>
+    <div>Section 05 &amp; 06 · AI 评审、跨模型复核、我们两人把关与已知不足</div>
+    <div>14 / 15</div>
   </div>
 </section>
 
@@ -1560,7 +1593,7 @@
 <section class="slide hero dark" data-slide-id="compliance-and-closing" data-animate="quote">
   <div class="chrome">
     <div>07 &amp; 08 · 版权合规、AI 标识与复现指引</div>
-    <div>Finale · 14 / 14</div>
+    <div>Finale · 15 / 15</div>
   </div>
   <div class="frame" style="display:grid; gap:3.8vh; align-content:center; min-height:78vh">
     <div class="kicker" data-anim>AI-Generated Content Disclosure &amp; Reproducibility</div>
@@ -1572,12 +1605,12 @@
       <strong>版权与 AI 标识：</strong>全部 3D 资产由 Aholo Lux3D 原创提示词生成；v5 成片不使用原画图像，致敬北宋张择端公有领域原作；音轨为程序合成与系统 TTS，无第三方音乐采样。
     </p>
     <div class="meta-row" data-anim>
-      <span>pnpm install</span><span>→</span><span>pnpm film:dev (?auto=1 实时预览)</span><span>→</span><span>pnpm film:render (逐帧成片)</span><span>→</span><span>pnpm film:qa (0 重叠审计)</span>
+      <span>完整源码与复现步骤见 GitHub 仓库 README</span>
     </div>
   </div>
   <div class="foot">
-    <div>《汴京 · 清明》项目汇报 · 感谢各位评委老师审阅指正</div>
-    <div>14 / 14</div>
+    <div style="text-transform:none">《汴京 · 清明》· 团队成员：胡昊、siuser小伟 · 感谢各位评委老师审阅指正</div>
+    <div>15 / 15</div>
   </div>
 </section>
 
@@ -1621,11 +1654,11 @@ const SPEAKER_NOTES = [
     "title": "作品核心交付指标",
     "section": "创意与总览",
     "minutes": 0.6,
-    "purpose": "向评委快速报清 Lux3D 资产规模、调用次数、成片帧数、零重叠碰撞与 15 轮验收结果",
+    "purpose": "向评委快速报清 Lux3D 资产规模、调用次数、成片帧数、零重叠碰撞与 15 轮看片修复",
     "talk": [
       "场景中每一个可见三维物件 100% 由 Lux3D 生成，没有任何网上下载的现成模型；累计调用至少 35 次，沉淀出 25 件 3 万面 PBR 资产",
       "成片严格输出 2,700 帧真 30fps，配合 7 层以上程序合成空间声场",
-      "质量上跑通两条硬护栏：全片碰撞审计 0 重叠，独立评审连续迭代 15 轮达到 4.00 分过线"
+      "质量上跑通两条硬护栏：全片碰撞审计 0 重叠，我们请 AI 评审员反复看片 15 轮，逐条修复它指出的问题"
     ],
     "transition": "接下来进入第一幕，完整检视 90 秒成片从城外郊野到城内街市的八张关键定帧"
   },
@@ -1671,29 +1704,40 @@ const SPEAKER_NOTES = [
   },
   {
     "id": "act2-lux3d",
-    "title": "第二幕 · 万物皆由生成",
+    "title": "第二幕 · 文字生成 3D 资产",
     "section": "第二幕 · Lux3D 核心作用",
     "minutes": 0.3,
     "purpose": "总起报告书第 2 节：明确 Lux3D 的接口调用规格与批处理工程管线",
     "talk": [
-      "我们通过 server/aholo.ts 调用开放平台 Lux3D 文生 3D 接口，统一采用 G1-Turbo、30,000 面、开启 PBR 贴图输出 GLB",
-      "针对官方结果链接 2 小时失效的机制，编写了 txt3d-kit.ts 支持 5 路并发、taskId 断点续跑并即时下载到本地",
+      "场景里的桥、船、楼、人、牲畜、树共 25 件三维物体，都是我们写一段文字描述，调用 Lux3D 开放平台的文生 3D 接口生成的，统一采用 G1-Turbo 模型、3 万面、开启 PBR 贴图；地面、水面、天空和水墨效果是程序生成的",
+      "由于生成结果的下载链接两小时后失效，我们写了批量脚本：五路并发生成、中断可续跑、生成完立刻下载到本地",
       "下面分两页展示全部 25 件资产清单以及虹桥四版迭代和图生文生对比实测"
     ],
     "transition": "先看五大类 25 件宋代资产的全景标本与作用拆解"
   },
   {
     "id": "lux3d-kit-matrix",
-    "title": "廿五件宋代文生资产库（五大类完整清单）",
+    "title": "25 件宋代资产库（一）：建筑、舟船、牲畜与植物",
     "section": "第二幕 · Lux3D 核心作用",
-    "minutes": 0.9,
-    "purpose": "完整对齐报告书 2.2 节资产表与两张 GLB 原生渲染大图，证明资产丰富度与细节处理",
+    "minutes": 0.6,
+    "purpose": "展示 25 件资产中的建筑、舟船、牲畜、器物与植物共 13 件，证明资产丰富度",
     "talk": [
-      "左图直接截自 Lux3D 生成的建筑与舟船 GLB：城楼、彩楼欢门、酒楼、店铺、民居、方亭、城墙与高桅漕船，檐角斗拱与船篷结构非常扎实",
-      "右图是 Lux3D 生成的 8 种宋代人物：挑夫、书生、老者、妇人、孩童、兵士、商人与僧人；注意右下角僧人生成时自带方形底座，我们在场景矩阵里专门做了下沉埋地处理",
-      "底部五列完整对应报告书资产表：桥与水 5 件、宋构建筑 7 件、人物 8 件、牲畜器物 3 件、松柳植物 2 件，共 25 件约 230MB"
+      "左图是 Lux3D 生成的 8 件建筑与舟船：城楼、彩楼欢门、酒楼、店铺、民居、方亭、夯土城墙和高桅漕船，檐角、斗拱和船篷结构都很扎实",
+      "右图是骆驼、驴、太平车、垂柳和苍松，它们让城外的驼队、驴队和河岸风景有了真实的形体"
     ],
-    "transition": "为什么桥与水里有四个版本的虹桥？下一页展示最关键的一次资产迭代与路线实测"
+    "transition": "接下来看另外 8 个市井人物，以及关键的虹桥"
+  },
+  {
+    "id": "lux3d-kit-people",
+    "title": "25 件宋代资产库（二）：市井人物",
+    "section": "第二幕 · Lux3D 核心作用",
+    "minutes": 0.5,
+    "purpose": "展示 8 种人物，并交代 25 件资产的完整构成",
+    "talk": [
+      "这是 Lux3D 生成的 8 种宋代人物：挑夫、书生、老者、妇人、孩童、兵士、商人与僧人；右下角的僧人生成时自带方形底座，我们在场景里让它自动埋入地面",
+      "底部是 25 件的完整构成：虹桥 4 件、漕船 1 件、建筑 7 件、人物 8 件、牲畜与器物 3 件、垂柳与苍松 2 件"
+    ],
+    "transition": "为什么虹桥有四个版本？下一页展示最关键的一次资产迭代与路线实测"
   },
   {
     "id": "lux3d-bridges-and-test",
@@ -1703,11 +1747,11 @@ const SPEAKER_NOTES = [
     "purpose": "全宽大图展示报告书 2.3 节虹桥四连拍与图生/文生 35+ 次实测结论，凸显真实工程深度",
     "talk": [
       "上方全宽展示了虹桥四个生成版本：左一首版拱形漂亮，但两端带陡峭石墩，人物根本走不上桥",
-      "我们针对性改写提示词，明确要求「两端缓坡、宽台阶、与街面齐平、可步行」，连续生成右三版 B、C、D，最终选定第三座 bridgeC，让桥上行人与桥下漕船完美物理自洽",
+      "我们针对性改写提示词，明确要求「两端缓坡、宽台阶、与街面齐平、可步行」，连续生成右边三版，最终选定第三座，让桥上行人与桥下漕船都能顺利通过",
       "右下总结了早期 10 次原画裁切图生 3D 的实测结论：单体城楼干净可用，但船、桥、驼队、医铺（变成木块）、彩楼（变成镂空平板）均失败；改用文生 3D 后飞檐斗拱与桅索稳定得多，确立了文生资产库加程序组景路线"
     ],
     "transition": "不仅资产经历了多轮筛选，整部影片的渲染路线也在直观审视下经历了三次大转向",
-    "cue": "手势横向指过上方四座桥，重点停在第三座橙色标注的 bridgeC"
+    "cue": "手势横向指过上方四座桥，重点停在第三座橙色标注的桥"
   },
   {
     "id": "four-iterations",
@@ -1720,7 +1764,7 @@ const SPEAKER_NOTES = [
       "右上 hybrid 版：原画背景叠贴 Lux3D 物件，城楼像漂在画上“太抽象”，再次放弃",
       "左下 v4 汴京三维：彻底转向全 3D 重建，立体感确立但人物静态且穿模较多；右下 v5 定稿补齐水墨后期、8 类人物步态、分道绕行与确定性渲染，修掉陷地、漂浮与倒走等全部硬伤"
     ],
-    "transition": "进入第三幕，汇报支撑 v5 定稿的九层技术实现细节"
+    "transition": "进入第三幕，汇报支撑定稿的技术实现"
   },
   {
     "id": "act3-tech",
@@ -1731,21 +1775,21 @@ const SPEAKER_NOTES = [
     "talk": [
       "把 25 个生成模型放进 Three.js 后，核心要解决两个问题：如何做出宋绢淡设色气韵，以及如何让百余个动态实例零穿模运行",
       "全套场景逻辑、水墨着色器、步态与碰撞核验均收敛在紧凑透明的自研代码中，不依赖重型黑盒引擎",
-      "下一页用八个步进模块完整覆盖报告书第 3 节的全部九层实现"
+      "下一页用八个模块讲清楚技术实现"
     ],
     "transition": "按右方向键逐步展开这八个工程模块",
     "advance": "进入下一页后按右方向键或空格依次点亮 01 至 08"
   },
   {
     "id": "tech-architecture",
-    "title": "技术实现九层完整管线",
+    "title": "技术实现完整管线",
     "section": "第三幕 · 技术实现",
     "minutes": 1,
-    "purpose": "逐条讲清报告书第 3 节的场景分块、Sobel 断笔水墨、无骨骼摆腿、射线实测表、确定性渲染与合成音轨",
+    "purpose": "逐条讲清报告书第 3 节的场景分块、水墨渲染、人物摆腿、实测高度、逐帧渲染与合成音轨",
     "talk": [
-      "上排 01–04 负责视觉与人物：静态 InstancedMesh 按 X 分块裁剪并打丝绢去饱和补丁；Sobel 深度+亮度描边加入手绘抖动与断笔，配合宣纸纤维与晨昏雾；人物在顶点着色器按实例独立相位摆腿，说书场 11 人围圈面朝台上",
-      "下排 05–06 负责交通与物理自洽：多车道同速防追尾、遇桥脚绕行，漕船按实测净空排队停泊；地面、桥面与船底均做射线检测建真实高度表，并用 qa-collide.mjs 强制要求全片 0 重叠",
-      "下排 07–08 负责镜头、牌匾与成片：Hermite 曲线带最低机位防穿地检查，Canvas 动态写牌匾；?det=1 配合 __step(t) 逐帧合成 2,700 帧无掉帧视频，并叠加 Python 程序合成的分层古乐、叫卖与 48 秒高潮鼓点呼喊"
+      "上排 01–04 负责视觉与人物：静态物体批量实例化并按区域分块，统一压成宋绢般的淡色；按深度与明暗提取轮廓，加入手绘抖动与断笔，配合宣纸纤维与晨昏雾；每个人的步频和起步时间各不相同，说书场 11 人围圈面朝台上",
+      "下排 05–06 负责交通与物理自洽：多车道同速防追尾、遇桥脚绕行，漕船按实测净空排队停泊；地面、桥面与船底都实测出真实高度，并用自动检查要求全片 0 重叠",
+      "下排 07–08 负责镜头、牌匾与成片：镜头沿平滑曲线移动并自动防止穿地，牌匾由程序生成；逐帧精确渲染 2,700 帧无掉帧视频，并叠加程序合成的分层古乐、叫卖与 48 秒高潮鼓点呼喊"
     ],
     "transition": "再精巧的代码也需要严苛验收——下一页汇报我们的三重质量把关与诚实边界",
     "cue": "连续按 8 次右方向键点亮全部模块后再翻页"
@@ -1755,11 +1799,11 @@ const SPEAKER_NOTES = [
     "title": "三重质量把关与坦诚工程边界",
     "section": "验收与合规",
     "minutes": 0.8,
-    "purpose": "完整呈现报告书第 5 节（15轮独立评审 + Gemini 跨模型看片 + 作者人工把关）与第 6 节四项已知不足",
+    "purpose": "呈现报告书第 5 节（15 轮 AI 看片、Gemini 跨模型复核、我们两人亲自把关）与第 6 节已知不足",
     "talk": [
-      "我们依据画作学术研究立下 docs/31 七大类验收标准与 10 条红线，执行了三重把关：第一重是 15 轮独立盲审，总分从 3.2 稳步爬升至 r15 的 4.00 分且零红线",
-      "第二重引入 Gemini 4 Carbon 实看视频与音轨（打出严苛的 2.63 分），我们逐条核对后修掉了 70 秒章名漏字并重调叫卖与冲击声对位；第三重由作者亲自看片，逐一测量修掉人陷地、桥坡漂浮、倒着走等细节",
-      "左下角也如实向各位老师汇报四项已知不足：城门洞实心未镂空、建筑水墨感弱于人物、叫卖为系统 TTS、以及 230MB 模型包后续需做 meshopt 与 WebP 压缩"
+      "我们做了三重把关：第一重是请没参与制作的 AI 评审员看片，共 15 轮，每轮我们逐条修复它指出的问题，直到它不再提出严重问题",
+      "第二重换 Google 的 Gemini 看成片和音轨，它比第一批评审员更挑剔，我们逐条核对后修掉了 70 秒章名漏字并重调叫卖与冲击声对位；第三重是我们两个人亲自看片，逐一测量修掉人陷地、桥坡漂浮、倒着走等细节",
+      "右边如实向各位老师汇报我们没做到的地方：城门洞实心未镂空、水面偏平、近景人物有重复感、建筑水墨感弱于人物、叫卖为系统合成语音，以及 230MB 模型包上线前需压缩"
     ],
     "transition": "最后汇报版权合规、AI 生成标识与一键复现命令，完成今天的展示"
   },
@@ -1775,7 +1819,7 @@ const SPEAKER_NOTES = [
       "「一卷长图，一座城的一天。」感谢各位评委老师审阅，恳请各位老师批评指正！"
     ],
     "transition": "进入评委问答（Q&A）与现场实时漫游演示环节",
-    "interaction": "邀请评委提问，可现场演示 ?auto=1 实时漫游、自由视角拖拽或运行 pnpm film:qa"
+    "interaction": "邀请评委提问，可现场演示实时漫游、自由视角拖拽或运行穿插检查"
   }
 ];
 window.__SPEAKER_NOTES__ = SPEAKER_NOTES;
@@ -2756,8 +2800,6 @@ const initialSlide = initialSlideParam ? Number(initialSlideParam) - 1 : 0;
 go(Number.isFinite(initialSlide) ? initialSlide : 0);
 window.__pptPresenter?.initMode();
 </script>
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-<script>lucide.createIcons();</script>
 
 <!-- ============ Motion One 动效引擎（本地优先,CDN 兜底） ============
      加载策略:先 ./assets/motion.min.js(本地,离线可用),失败 fallback 到 jsDelivr CDN
